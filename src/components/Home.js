@@ -22,10 +22,10 @@ export default function Home() {
                     </ul>
                 </nav>
                 <Switch>
-                    <Route path="/">
+                    <Route exact path="/">
                         <LandingPage />
                     </Route>
-                    <Route path="/finances">
+                    <Route exact path="/finances">
                         <Login />
                     </Route>
                 </Switch>
