@@ -81,7 +81,12 @@ nav ul li a:hover{
   margin-right: 15px;
 }
 
-.flex-wrapper {
-  display: flex;
-  justify-content: center;
+.error-message {
+  color: red;
+  font-weight: 500;
+  font-size: 13px;
+  background: yellow;
+  border-radius: 35px;
+  text-align: center;
+  padding: 1px;
 }
