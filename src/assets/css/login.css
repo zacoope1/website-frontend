@@ -1,0 +1,35 @@
+form {
+    font-size: 17px;
+    display: block;
+}
+
+form button {
+    font-size: 17px;
+}
+
+form label {
+    font-weight: 600;
+    text-align: left;
+}
+
+form input {
+    padding: 5px;
+    border-radius: 0;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.form-input-center {
+    display: flex;
+    justify-content: center;
+}
+
+.error-message{
+    color: red;
+    font-weight: 500;
+    font-size: 13px;
+    background: yellow;
+    border-radius: 35px;
+    text-align: center;
+    padding: 1px;
+}

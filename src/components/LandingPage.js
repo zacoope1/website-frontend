@@ -9,7 +9,7 @@ class LandingPage extends React.Component {
 
     render(){
         return (
-            <div>
+            <div className="page-content-wrapper">
                 <h1>Hello, world!</h1>
             </div>
         )
