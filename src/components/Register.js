@@ -14,7 +14,7 @@ class Register extends React.Component{
             <div className="page-content-wrapper">
                 <div className="Form-Content">
                     <h2>Sign Up</h2>
-                    { this.state.hasError === true ? <div className="error-message"><p>{this.state.errorMessage}</p><br/></div> : null }
+                    { this.state.hasError === true ? <div className="error-message"><p>{this.state.errorMessage}</p></div> : null }
                     <form>
                         <div className="form-input-center">
                             <div className="form-items">
@@ -53,7 +53,7 @@ class Register extends React.Component{
                             </div>
                         </div>
                         <div className="btn-center">
-                            <p className="btn" onClick={() => {console.log("Hi")}}>Submit</p>
+                            <p className="btn" onClick={() => {this.setState({hasError: true, errorMessage: "ERROR: This feature has not been implemented yet!"})}}>Submit</p>
                             <Link className="link" to="/login">Back</Link>
                         </div>
                     </form>

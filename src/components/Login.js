@@ -29,7 +29,7 @@ class Login extends React.Component {
                             </div>
                         </div>
                         <div className="btn-center">
-                            <p className="btn" onClick={() => {console.log("Hi")}}>Submit</p>
+                            <p className="btn" onClick={() => {this.setState({hasError: true, errorMessage: "ERROR: This feature has not been implemented yet!"})}}>Submit</p>
                             <Link className="link" to="/register">Sign up</Link>
                         </div>
                     </form>
