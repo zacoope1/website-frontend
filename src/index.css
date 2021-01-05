@@ -104,8 +104,8 @@ nav ul li a:hover{
 }
 
 .nav-drop-menu-links a:hover {
-  background: orange;
-  color: white;
+  background: #FFFFCC;
+  color: tomato;
 }
 
 .container {
@@ -120,7 +120,7 @@ nav ul li a:hover{
 .bar1, .bar2, .bar3 {
   width: 35px;
   height: 5px;
-  background-color: #333;
+  background-color: black;
   margin: 6px 0;
 }
 
@@ -142,8 +142,8 @@ nav ul li a:hover{
 }
 
 .page-content-wrapper {
-  display: block;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   padding: 19px;
 }
 
@@ -163,8 +163,8 @@ nav ul li a:hover{
 }
 
 .btn {
-  color: white;
-  background: tomato;
+  color: black;
+  background: #9bddff;
   padding: 5px 7px;
   border-radius: 5px;
 }
@@ -179,7 +179,7 @@ nav ul li a:hover{
 }
 
 .link {
-  color: red;
+  color: black;
   background: whitesmoke;
   padding: 5px 7px;
   border-radius: 5px;
@@ -198,7 +198,7 @@ nav ul li a:hover{
   color: red;
   font-weight: 500;
   font-size: 13px;
-  background: yellow;
+  background: #FFFFCC;
   border-radius: 35px;
   text-align: center;
   padding: 1px;

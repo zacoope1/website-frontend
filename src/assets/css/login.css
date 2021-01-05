@@ -3,6 +3,16 @@ form {
     display: block;
 }
 
+.Form-Content {
+    display: block;
+    width: 350px;
+    padding: 20px;
+    border-radius: 15px;
+    background: red;
+    color: whitesmoke;
+    font-weight: 600;
+}
+
 form button {
     font-size: 17px;
 }
@@ -24,7 +34,21 @@ form input {
     justify-content: center;
 }
 
-.Form-Content {
-    color: whitesmoke;
-    font-weight: 600;
+form input {
+    outline: none;
+    border: 1px solid  blue;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 3px 5px 0 rgba(0,0,0,0.19) !important;
+    padding: 10px;
+    width: 250px;
+}
+
+form input:focus {
+    outline: none;
+    border: 1px solid #FFFFCC;
+    width: 300px;
+    transition: .2s linear;
+}
+
+form input:active {
+    outline: none;
 }
