@@ -23,3 +23,8 @@ form input {
     display: flex;
     justify-content: center;
 }
+
+.Form-Content {
+    color: whitesmoke;
+    font-weight: 600;
+}
