@@ -12,7 +12,7 @@ class Login extends React.Component {
     render() {
         return(
             <div className="page-content-wrapper">
-                <div className="Form-Content">
+                <div className="form-content">
                     <h2>Login</h2>
                     { this.state.hasError? <div className="error-message"><p>{this.state.errorMessage}</p></div> : null }
                     <form>
