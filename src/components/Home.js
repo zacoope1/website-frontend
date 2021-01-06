@@ -71,6 +71,7 @@ import Register from './Register';
                                             <div className="nav-drop-menu-links">
                                                 <Link onClick={ () => { this.setState({ menuEnabled: false }) } } to="/">Home</Link>
                                                 <Link onClick={ () => { this.setState({ menuEnabled: false }) } } to="/login">ToDo App</Link>
+                                                <a href="/Zachary-Cooper-Resume.pdf">Resume</a>
                                                 <a onClick={ () => { this.setState({ menuEnabled: false }) } } href="https://github.com/zacoope1">Github</a>
                                                 <a onClick={ () => { this.setState({ menuEnabled: false }) } } href="https://www.linkedin.com/in/zachary-cooper-92b2a5159/" >LinkedIn</a>
                                                 <a onClick={ () => { this.setState({ menuEnabled: false }) } } href="https://zacharyacooper.com">Capstone</a>
@@ -83,6 +84,7 @@ import Register from './Register';
                                     <ul>
                                         <li><Link to="/">Home</Link></li>
                                         <li><Link to="/login">ToDo App</Link></li>
+                                        <li><a href="/Zachary-Cooper-Resume.pdf">Resume</a></li>
                                         <li><a href="https://github.com/zacoope1">Github</a></li>
                                         <li><a href="https://www.linkedin.com/in/zachary-cooper-92b2a5159/" >LinkedIn</a></li>
                                         <li><a href="https://zacharyacooper.com">Capstone</a></li>
