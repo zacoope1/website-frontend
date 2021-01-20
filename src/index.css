@@ -217,26 +217,34 @@ nav ul li a:hover{
   justify-content: space-evenly;
 }
 
-.section-card {
+.project-card {
   text-align: center;
   width: 300px;
   padding: 20px;
   padding-top: 10px;
+  background: yellow;
+  border-radius: 15px;
 }
 
-.section-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.section-card ul li{
-  text-align: center;
-}
-
-.section-card img {
+.project-card img {
   text-align: center;
   width: 200px;
   height: 200px;
+}
+
+.skill-card {
+  text-align: center;
+  width: 325px;
+  height: 150px;
+  padding: 20px;
+  padding-top: 10px;
+  background: orange;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.skill-card p {
+  font-weight: 600;
 }
 
 .section-card-button {
@@ -251,6 +259,6 @@ nav ul li a:hover{
 }
 
 .section-card-button:hover {
-  color: white;
+  color: black;
   background: #9bddff;
 }
