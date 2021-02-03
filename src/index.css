@@ -7,20 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('./assets/img/background.jpg');
-  background-repeat: no-repeat;
-}
-
-@media only screen and (max-width: 1000px) {
-  body {
-    background-image: url('./assets/img/mobile-background.jpg');
-  }
-}
-
-@media only screen and (min-width: 2000px) {
-  body {
-    background-image: url('./assets/img/background-large.jpg');
-  }
+  background: rgb(44, 39, 39);
 }
 
 a {
@@ -49,7 +36,7 @@ nav {
 }
 
 .nav-logo h5 {
-  margin: 7px 0;
+  margin: 0;
 }
 
 nav ul {
@@ -103,7 +90,7 @@ nav ul li a:hover{
 }
 
 .nav-drop-menu-links a:hover {
-  background:black;
+  background: rgb(44, 39, 39);
   color: white;
 }
 
@@ -141,6 +128,7 @@ nav ul li a:hover{
 }
 
 .page-content-wrapper {
+  margin: 0;
   display: block;
   justify-content: center;
 }
@@ -203,62 +191,48 @@ nav ul li a:hover{
 }
 
 .landing-page-content {
-  /* margin: 0 0 10px 0; */
-  width: 100%;
-  background: #FFFFCC;
-  /* border-radius: 10px; */
-  /* box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 3px 5px 0 rgba(0,0,0,0.19) !important; */
-  padding: 10px;
-}
-
-.sections-evenly-spaced {
   display: flex;
+  justify-content: center;
+}
+
+
+.info-card {
+  text-align: center;
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.project-card {
-  text-align: center;
-  width: 300px;
-  padding: 20px;
-  padding-top: 10px;
-  background: yellow;
-  border-radius: 15px;
-}
-
-.project-card img {
-  text-align: center;
-  width: 200px;
-  height: 200px;
-}
-
-.skill-card {
-  text-align: center;
-  width: 325px;
-  height: 150px;
-  padding: 20px;
-  padding-top: 10px;
-  background: orange;
-  border-radius: 15px;
-  margin: 10px;
-}
-
-.skill-card p {
-  font-weight: 600;
-}
-
-.section-card-button {
-  text-decoration: none;
-  color: black;
-  background: white;
-  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 3px 5px 0 rgba(0,0,0,0.19) !important;
-  font-weight: 600;
-  border-radius: 10px;
-  margin: 15px;
-  padding: 10px;
-}
-
-.section-card-button:hover {
-  color: black;
   background: #9bddff;
+  padding: 15px 15px;
+  margin: 5px;
+  position: absolute;
+  z-index: -5;
+  top: 15%;
+}
+
+.about-me {
+  padding: 10px 15px;
+  margin: 5px;
+  z-index: -5;
+}
+
+.Headshot {
+  max-width: 300px;
+}
+
+@keyframes smallRotate{
+  25% {transform: rotate(25deg);}
+  50% {transform: rotate(-25deg);}
+  100% {transform: rotate(0deg);}
+}
+
+.Headshot:hover{
+  animation-name: smallRotate;
+  animation-duration: 2.5s;
+}
+
+@media screen and (max-width: 900px) {
+  .Headshot{
+    visibility: hidden;
+    display: none;
+  }
 }

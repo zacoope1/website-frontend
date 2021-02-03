@@ -45,7 +45,7 @@ import Register from './Register';
                         <nav>
                             <div className="nav-logo">
                                 <h2>Zachary A. Cooper</h2>
-                                <h5>Software Engineer</h5>
+                                <h5>Computer Science Undergrad</h5>
                             </div>
                             {
                                 this.state.mobileMode === true ?
