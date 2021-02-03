@@ -216,7 +216,8 @@ nav ul li a:hover{
 }
 
 .Headshot {
-  max-width: 300px;
+  max-width: 350px;
+  min-width: 350px;
 }
 
 @keyframes smallRotate{
@@ -225,14 +226,56 @@ nav ul li a:hover{
   100% {transform: rotate(0deg);}
 }
 
+
 .Headshot:hover{
   animation-name: smallRotate;
-  animation-duration: 2.5s;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 
-@media screen and (max-width: 900px) {
+.Disclaimer {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  background: tomato;
+  margin: 10px;
+  padding: 2px 20px;
+  border-radius: 15px;
+}
+
+.Disclaimer button {
+  position: absolute;;
+  top: 0px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.Disclaimer button:hover {
+  font-weight: 600;
+  color: white;
+}
+
+.Disclaimer button:active {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Mobile Tweaks */
+@media screen and (max-width: 1200px) {
+
   .Headshot{
-    visibility: hidden;
-    display: none;
+    max-width: 330px;
+    max-height: 500px;
   }
+
+  .info-card{
+    background: none;
+    color: #9bddff;
+  }
+  
 }
