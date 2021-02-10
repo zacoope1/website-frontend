@@ -7,7 +7,10 @@ class Login extends React.Component {
 
     constructor() {
         super();
-        this.state = {hasError: false, errorMessage: "", username: "", password: ""};
+        this.state = {response: null, hasError: false, errorMessage: "", username: "", password: ""};
+    }
+
+    componentDidUpdate(){
     }
 
     render() {
@@ -31,7 +34,7 @@ class Login extends React.Component {
                         </div>
                         <div className="btn-center">
                             <p className="btn" onClick={() => {this.performLogin()}}>Submit</p>
-                            <Link className="link" to="/register">Sign up</Link>
+                            <Link className="link" to="/app/register">Sign up</Link>
                         </div>
                     </form>
                 </div>
@@ -41,10 +44,17 @@ class Login extends React.Component {
 
     async performLogin(){
         if (this.state.username.length > 0 && this.state.password.length > 0) {
-            console.log(logIn(this.state.username, this.state.password));
+            const response = await logIn(this.state.username, this.state.password);
+            const responseBody = await response.json();
+            if(response.status === 200){
+                //LOGIN
+            }
+            else {
+                this.setState({hasError: true, errorMessage: responseBody.errorMessage})
+            }
         }
         else {
-            this.setState({hasError: true, errorMessage: "ERROR: Username or Password field is blank. Please try again with a valid login."})
+            this.setState({hasError: true, errorMessage: "Username or Password field is blank. Please try again with a valid login."})
         }
     }
 }

@@ -1,20 +1,24 @@
 import {API_URL, CREATE_USER_ENDPOINT, USER_LOGIN_ENDPOINT} from '../api/Endpoints';
 
-// TODO CHANGE SPRINGBOOT SERVER TO SERVE OVER HTTPS
-export function logIn(username, password) {
-    fetch(API_URL + USER_LOGIN_ENDPOINT, {
-    "method": "POST",
-    "headers": {},
-    "body": JSON.stringify({
-        username,
-        password
+export async function signUp(body){
+    const response = await fetch(API_URL + CREATE_USER_ENDPOINT, {
+        "mode": "cors",
+        "method": "POST",
+        "headers": new Headers({'content-type': 'application/json'}),
+        "body": JSON.stringify({...body})
     })
+    return response;
+}
+
+export async function logIn(username, password) {
+    const response = await fetch(API_URL + USER_LOGIN_ENDPOINT, {
+        "mode": "cors",
+        "method": "POST",
+        "headers": new Headers({'content-type': 'application/json'}),
+        "body": JSON.stringify({
+            username,
+            password
+        })
     })
-    .then(response => {
-        return response.json()
-    })
-    .catch(err => {
-        console.log(err);
-        return err; 
-    });
+    return response;
 }

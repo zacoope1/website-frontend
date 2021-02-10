@@ -70,6 +70,7 @@ import Register from './Register';
                                             </div>
                                             <div className="nav-drop-menu-links">
                                                 <Link onClick={ () => { this.setState({ menuEnabled: false }) } } to="/">Home</Link>
+                                                <Link onClick={ () => { this.setState({ menuEnabled: false }) } } to="/app/login">App</Link>
                                                 <a Target="_blank" href="/Zachary-Cooper-Resume.pdf">Resume</a>
                                                 <a Target="_blank" onClick={ () => { this.setState({ menuEnabled: false }) } } href="https://github.com/zacoope1">Github</a>
                                                 <a Target="_blank" onClick={ () => { this.setState({ menuEnabled: false }) } } href="https://www.linkedin.com/in/zachary-cooper-92b2a5159/" >LinkedIn</a>
@@ -82,6 +83,7 @@ import Register from './Register';
                                 (
                                     <ul>
                                         <li><Link to="/">Home</Link></li>
+                                        <li><Link onClick={ () => { this.setState({ menuEnabled: false }) } } to="/app/login">App</Link></li>
                                         <li><a Target="_blank" href="/Zachary-Cooper-Resume.pdf">Resume</a></li>
                                         <li><a Target="_blank" href="https://github.com/zacoope1">Github</a></li>
                                         <li><a Target="_blank" href="https://www.linkedin.com/in/zachary-cooper-92b2a5159/" >LinkedIn</a></li>
@@ -94,10 +96,10 @@ import Register from './Register';
                             <Route exact path="/">
                                 <LandingPage />
                             </Route>
-                            <Route exact path="/login">
+                            <Route exact path="/app/login">
                                 <Login />
                             </Route>
-                            <Route exact path="/register">
+                            <Route exact path="/app/register">
                                 <Register />
                             </Route>
                         </Switch>
