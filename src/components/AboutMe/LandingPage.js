@@ -1,6 +1,5 @@
 import React from 'react';
-
-import ME from '../assets/img/ZacharyCooper.JPG';
+import ME from '../../assets/img/ZacharyCooper.JPG';
 
 class LandingPage extends React.Component {
 

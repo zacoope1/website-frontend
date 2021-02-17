@@ -6,8 +6,6 @@ import {
     Link
 } from "react-router-dom";
 import LandingPage from './LandingPage';
-import Login from './Login';
-import Register from './Register';
 
     class Home extends React.Component {
 
@@ -69,8 +67,8 @@ import Register from './Register';
                                                 <div class="bar3"></div>
                                             </div>
                                             <div className="nav-drop-menu-links">
-                                                <Link onClick={ () => { this.setState({ menuEnabled: false }) } } to="/">Home</Link>
-                                                <Link onClick={ () => { this.setState({ menuEnabled: false }) } } to="/app/login">App</Link>
+                                                <Link onClick={ () => { this.setState({ menuEnabled: false }) } } href="/">Home</Link>
+                                                <a onClick={ () => { this.setState({ menuEnabled: false }) } } href="/app">App</a>
                                                 <a Target="_blank" href="/Zachary-Cooper-Resume.pdf">Resume</a>
                                                 <a Target="_blank" onClick={ () => { this.setState({ menuEnabled: false }) } } href="https://github.com/zacoope1">Github</a>
                                                 <a Target="_blank" onClick={ () => { this.setState({ menuEnabled: false }) } } href="https://www.linkedin.com/in/zachary-cooper-92b2a5159/" >LinkedIn</a>
@@ -83,7 +81,7 @@ import Register from './Register';
                                 (
                                     <ul>
                                         <li><Link to="/">Home</Link></li>
-                                        <li><Link onClick={ () => { this.setState({ menuEnabled: false }) } } to="/app/login">App</Link></li>
+                                        <li><a onClick={ () => { this.setState({ menuEnabled: false }) } } href="/app">App</a></li>
                                         <li><a Target="_blank" href="/Zachary-Cooper-Resume.pdf">Resume</a></li>
                                         <li><a Target="_blank" href="https://github.com/zacoope1">Github</a></li>
                                         <li><a Target="_blank" href="https://www.linkedin.com/in/zachary-cooper-92b2a5159/" >LinkedIn</a></li>
@@ -95,12 +93,6 @@ import Register from './Register';
                         <Switch>
                             <Route exact path="/">
                                 <LandingPage />
-                            </Route>
-                            <Route exact path="/app/login">
-                                <Login />
-                            </Route>
-                            <Route exact path="/app/register">
-                                <Register />
                             </Route>
                         </Switch>
                     </div>

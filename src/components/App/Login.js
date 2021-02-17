@@ -1,16 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {logIn} from '../api/Actions';
-import '../assets/css/login.css';
+import {logIn} from '../../api/Actions';
+import '../../assets/css/login.css';
 
 class Login extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {response: null, hasError: false, errorMessage: "", username: "", password: ""};
+    constructor(props) {
+        super(props);
+        this.state = {
+            response: null,
+            hasError: false,
+            errorMessage: "",
+            username: "",
+            password: ""
+        };
     }
 
-    componentDidUpdate(){
+    componentDidMount(){
+
     }
 
     render() {
@@ -48,6 +55,7 @@ class Login extends React.Component {
             const responseBody = await response.json();
             if(response.status === 200){
                 //LOGIN
+                this.props.toggleLogIn(responseBody);
             }
             else {
                 this.setState({hasError: true, errorMessage: responseBody.errorMessage})

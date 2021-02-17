@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {signUp} from '../api/Actions';
-import '../assets/css/login.css';
+import {signUp} from '../../api/Actions';
+import '../../assets/css/login.css';
 
 class Register extends React.Component{
 
@@ -68,7 +68,7 @@ class Register extends React.Component{
                         </div>
                         <div className="btn-center">
                             <p className="btn" onClick={() => {this.performSignUp()}}>Submit</p>
-                            <Link className="link" to="/app/login">Login</Link>
+                            <Link className="link" to="/app">Login</Link>
                         </div>
                     </form>
                 </div>
@@ -87,7 +87,7 @@ class Register extends React.Component{
             return false;
         }
 
-        if(this.state.password !== this.setState.password2){
+        if(this.state.password !== this.state.password2){
             this.setState({errorMessage: "Passwords do not match"});
             return false
         }
@@ -111,7 +111,6 @@ class Register extends React.Component{
 
             if(response.status === 201) {
                 this.setState({hasError: true, errorMessage: "Account Created!"})
-                //Login
             }
             else {
                 this.setState({hasError: true, errorMessage: responseBody.errorMessage})
