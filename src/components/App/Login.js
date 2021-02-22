@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {logIn} from '../../api/Actions';
+import {printDebug} from '../../common/DebugFunctions';
+import {getCookie} from '../../common/cookie/cookie';
+import { useHistory } from "react-router-dom";
 import '../../assets/css/login.css';
 
 class Login extends React.Component {
@@ -16,12 +19,31 @@ class Login extends React.Component {
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
+
+        let cookie = {
+            sessionUuid: getCookie('suid'),
+            userUuid: getCookie('uid'),
+            cookiePresent: true
+        }
+
+        if (cookie.sessionUuid != null && cookie.userUuid != null) {
+            if (cookie.sessionUuid.length > 0 && cookie.userUuid.length > 0) {
+                this.props.toggleLogIn(cookie, cookie.cookiePresent);
+                //TODO Figure out how to programatically route to '/app/home'
+            }
+            else {
+                printDebug("Session Cookie Not Found!"); 
+            }
+        }
+        else {
+            printDebug("Session Cookie Not Found!");
+        }
 
     }
 
     render() {
-        return(
+        return (
             <div className="page-content-wrapper">
                 <div className="form-content">
                     <h2>Login</h2>
@@ -49,22 +71,17 @@ class Login extends React.Component {
         );
     }
 
-    async performLogin(){
-        if (this.state.username.length > 0 && this.state.password.length > 0) {
-            const response = await logIn(this.state.username, this.state.password);
-            const responseBody = await response.json();
-            if(response.status === 200){
-                //LOGIN
-                this.props.toggleLogIn(responseBody);
-            }
-            else {
-                this.setState({hasError: true, errorMessage: responseBody.errorMessage})
-            }
+    async performLogin() {
+        const response = await logIn(this.state.username, this.state.password);
+        const responseBody = await response.json();
+        if(response.status === 200){
+            this.props.toggleLogIn(responseBody, false);
         }
         else {
-            this.setState({hasError: true, errorMessage: "Username or Password field is blank. Please try again with a valid login."})
+            this.setState({hasError: true, errorMessage: responseBody.errorMessage})
         }
     }
+
 }
 
 export default Login;

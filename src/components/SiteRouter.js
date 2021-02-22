@@ -5,7 +5,7 @@ import {
     Route,
 } from "react-router-dom";
 import Home from '../components/AboutMe/Home';
-import App from '../components/App/App';
+import AppRouter from '../components/App/AppRouter';
 import Register from '../components/App/Register';
 
 export default class SiteRouter extends React.Component {
@@ -23,7 +23,7 @@ export default class SiteRouter extends React.Component {
                         <Home />
                     </Route>
                     <Route exact path="/app">
-                        <App />
+                        <AppRouter />
                     </Route>
                     <Route exact path="/app/register">
                         <Register />
