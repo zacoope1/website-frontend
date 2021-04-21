@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {signUp} from '../../api/Actions';
-import '../../assets/css/login.css';
+import {signUp} from '../../../api/Actions';
+import '../../../assets/css/login.css';
 
 class Register extends React.Component{
 

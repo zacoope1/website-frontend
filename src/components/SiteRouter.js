@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from '../components/AboutMe/Home';
 import AppRouter from '../components/App/AppRouter';
-import Register from '../components/App/Register';
+import Register from '../components/App/Register/Register';
 
 export default class SiteRouter extends React.Component {
 

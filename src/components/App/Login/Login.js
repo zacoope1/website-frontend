@@ -1,10 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {logIn} from '../../api/Actions';
-import {printDebug} from '../../common/DebugFunctions';
-import {getCookie} from '../../common/cookie/cookie';
-import { useHistory } from "react-router-dom";
-import '../../assets/css/login.css';
+import {logInAndCreateSession, logInWithSession} from '../../../api/Actions';
+import {printDebug} from '../../../common/DebugFunctions';
+import {getCookie} from '../../../common/cookie/cookie';
+import '../../../assets/css/login.css';
 
 class Login extends React.Component {
 
@@ -19,7 +18,7 @@ class Login extends React.Component {
         };
     }
 
-    componentDidMount() {
+    async componentDidMount() {
 
         let cookie = {
             sessionUuid: getCookie('suid'),
@@ -29,8 +28,16 @@ class Login extends React.Component {
 
         if (cookie.sessionUuid != null && cookie.userUuid != null) {
             if (cookie.sessionUuid.length > 0 && cookie.userUuid.length > 0) {
-                this.props.toggleLogIn(cookie, cookie.cookiePresent);
-                //TODO Figure out how to programatically route to '/app/home'
+                const response = await logInWithSession(cookie.sessionUuid, cookie.userUuid);
+                const responseBody = await response.json();
+                if (response.status === 200){
+                    this.props.toggleLogIn(responseBody, cookie, cookie.cookiePresent);
+                }
+                else {
+                    this.setState({hasError: true, errorMessage: "Failure to login. Please try again!"})
+                    document.cookie = "suid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                }
             }
             else {
                 printDebug("Session Cookie Not Found!"); 
@@ -72,10 +79,11 @@ class Login extends React.Component {
     }
 
     async performLogin() {
-        const response = await logIn(this.state.username, this.state.password);
+        const response = await logInAndCreateSession(this.state.username, this.state.password);
         const responseBody = await response.json();
         if(response.status === 200){
-            this.props.toggleLogIn(responseBody, false);
+            console.log(responseBody);
+            this.props.toggleLogIn(responseBody.userInfo, responseBody.sessionInfo , false);
         }
         else {
             this.setState({hasError: true, errorMessage: responseBody.errorMessage})
