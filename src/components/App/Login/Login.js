@@ -49,6 +49,15 @@ class Login extends React.Component {
 
     }
 
+    sanitizeInput(input) {
+        if(input.match(/^[0-9a-zA-Z]+$/)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     render() {
         return (
             <div className="page-content-wrapper">
@@ -79,15 +88,22 @@ class Login extends React.Component {
     }
 
     async performLogin() {
-        const response = await logInAndCreateSession(this.state.username, this.state.password);
-        const responseBody = await response.json();
-        if(response.status === 200){
-            console.log(responseBody);
-            this.props.toggleLogIn(responseBody.userInfo, responseBody.sessionInfo , false);
+        this.setState({hasError: false, errorMessage: ""});
+        if(this.sanitizeInput(this.state.username) && this.sanitizeInput(this.state.password)){
+            const response = await logInAndCreateSession(this.state.username, this.state.password);
+            const responseBody = await response.json();
+            if(response.status === 200){
+                console.log(responseBody);
+                this.props.toggleLogIn(responseBody.userInfo, responseBody.sessionInfo , false);
+            }
+            else{
+                this.setState({hasError: true, errorMessage: responseBody.errorMessage});
+            }
         }
         else {
-            this.setState({hasError: true, errorMessage: responseBody.errorMessage})
+            this.setState({hasError: true, errorMessage: "Fields must only consist of letters and numbers!"});
         }
+
     }
 
 }

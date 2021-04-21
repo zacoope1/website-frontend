@@ -77,6 +77,13 @@ class Register extends React.Component{
     }
 
     validateForm() {
+
+        if (!this.sanitizeInput(this.state.username) || !this.sanitizeInput(this.state.firstName) || !this.sanitizeInput(this.state.lastName) 
+            || !this.sanitizeInput(this.state.password) || !this.sanitizeInput(this.state.password2)) {
+            this.setState({errorMessage: "Fields must consist only of letters and numbers."});
+            return false
+        }
+
         if(this.state.username.length <= 0 || this.state.email.length === 0 || this.state.firstName.length === 0 || this.state.lastName.length === 0 || this.state.password.length === 0 || this.state.password2.length === 0){
             this.setState({errorMessage: "One or more fields are empty. Please complete the form."});
             return false;
@@ -93,6 +100,15 @@ class Register extends React.Component{
         }
 
         return true;
+    }
+
+    sanitizeInput(input) {
+        if(input.match(/^[0-9a-zA-Z]+$/)){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     async performSignUp() {
