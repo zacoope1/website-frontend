@@ -53,7 +53,7 @@ export default class AppRouter extends React.Component {
                     <div className="app-nav">
                         <button onClick={() => this.performLogOut()}>Log Out</button>
                     </div>
-                    <AppHome userInfo={this.state.userInfo} />
+                    <AppHome sessionUuid={this.state.sessionUuid} userInfo={this.state.userInfo} />
                 </div>
             )
         }

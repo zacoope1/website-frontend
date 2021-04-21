@@ -35,9 +35,9 @@ export default class AppHome extends React.Component {
     async clearSessions() {
         const response = await clearActiveSessions(this.props.userInfo.userUUid);
         if(response.status === 200){
-            this.setState({activeSessions: []});
+            await this.setState({activeSessions: []});
             //Log out of current session
-            await logOut(this.state.sessionUuid);
+            await logOut(this.props.sessionUuid);
             //Delete Cookies
             document.cookie = "suid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -49,8 +49,14 @@ export default class AppHome extends React.Component {
     render() {
         return (
             <div className="App-Home-Page-Content">
-                <h2>Welcome, {this.props.userInfo.firstName}!</h2>
-                <div>
+                <div className="Profile-Information">
+                    <h2>Welcome, {this.props.userInfo.firstName}!</h2>
+                    <p>Name: {this.props.userInfo.firstName} {this.props.userInfo.lastName}</p>
+                    <p>Username: {this.props.userInfo.username}</p>
+                    <p>Email: {this.props.userInfo.email}</p>
+                    <p>Account Created: {this.props.userInfo.accountCreatedDate}</p>
+                </div>
+                <div className="Session-Tab">
                     <h3>Session List</h3>
                     {this.state.activeSessions.length > 0 ? this.getSessions() : null}
                     <button onClick={() => {this.clearSessions();}}>Clear Active Sessions</button>
